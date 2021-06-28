@@ -1,0 +1,87 @@
+#include <iostream>
+#include <iomanip>
+#include <string>
+
+using namespace std;
+
+int main()
+{
+    int a;
+    while (1)
+    {
+        cout<<"Введите пятизначное число: ";
+        cin>>a;
+        if(a>9999 && a<100000)
+            break; 
+        else
+            cout<<"Неверный ввод\n";
+        
+    }
+
+    int x=10000, y;
+    for (int i=0; i<5; i++)
+    {
+        y=a/x;
+        cout<<y<<endl;
+        a%=x;
+        x/=10;
+    }
+}
+
+/--------------------------------------------------
+
+#include <iostream>
+#include <iomanip>
+#include <string>
+
+using namespace std;
+
+int main()
+{
+    	char a;
+	do
+	{
+	    cout<<"Введите латинскую букву нижнего регистра:"<<endl;
+	    cin>>a;
+	    if (a<'a' || a>'z') cout<<"Неверный ввод"<<endl;
+	} while (a<'a' || a>'z');
+	
+	int x;
+	x=(int)a-32;
+	a=(char)x;
+	cout<<"Латинская буква верхнего регистра: ";
+	cout<<a<<endl;
+}
+
+/--------------------------------------------------
+
+#include <iostream>
+#include <iomanip>
+#include <string>
+
+using namespace std;
+
+int main()
+{
+	int* mas; int n;
+	
+	cout<<"Введите количество элементов массива: "<<endl;;
+	cin>>n;
+	mas=new int[n];
+	cout<<"Введите элементы массива: "<<endl;
+	for (int i=0; i<n; i++)
+	    cin>>mas[i];
+	
+	cout<<"Массив: "<< endl;
+	for (int i=0; i<n; i++)
+	    cout<<mas[i]<<" ";
+    cout<<endl;
+    
+    int sum=0;
+	double sr;
+	for (int i=0; i<n; i++)
+	    sum+=mas[i];
+	sr=(double)sum/n;
+	
+	cout<<"Среднее арифметическое="<<sr<<endl;
+}
