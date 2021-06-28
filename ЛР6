@@ -1,0 +1,60 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+	int a, b, c, max;
+	
+	cout<<"Введите 3 целых числа:"<<endl;
+	cin>>a>>b>>c;
+	max=a;
+	if (max<b) max=b;
+	if (max<c) max=c;
+	
+	cout<<a<<" "<<b<<" "<<c<<" max="<<max<<endl;
+}
+
+/--------------------------------------------------
+
+#include <iostream>
+#include <iomanip>
+#include <string>
+
+using namespace std;
+
+int main()
+{
+   int up=4, down=1, x=1, y=1;
+   int a=0;
+   string str;
+	
+   while (x)
+   {
+      cout<<"Выберите один из следующих вариантов:"<<endl;
+      cout<<"1)Ввод данных"<<setw(33)<<"2)Вывод данных"<<endl;
+      cout<<"3)Удаление данных"<<setw(16)<<"4)Выход"<<endl;
+      cin>>str;
+		
+      for (int i=0; i<str.length(); i++)
+      {
+         if (!isdigit(str[i]))
+         {
+            a=4;
+            y=0;
+         }
+      }
+		
+      if (!y)
+      {
+         cout<<"Введённое значение является неверным, поэтому автоматически"<<endl;
+         break;
+      }
+		
+      a=stoi(str);
+      if (a<=up && a>=down)
+         x=0;
+   }
+	
+   cout<<"Выбран вариант: "<<a<<endl;
+}
