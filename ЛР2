@@ -1,0 +1,88 @@
+#include <iostream>
+#include <cstring>
+
+using namespace std;
+
+int main()
+{
+    string str;
+    cin>>str;
+ 
+    int n=str.length();
+ 
+    for (int i = 0;i < n;i++)
+        if (str[i]!=str[i+1])  
+            cout << str[i];
+    return 0;
+}
+
+/--------------------------------------------------
+
+#include <iostream>
+#include <cstring>
+
+using namespace std;
+
+int main()
+{
+    int a, n, j;
+    cout<<"Введите количество элементов: ";
+    cin>>n;
+    int *mas = new int [n];
+    
+    for (int i=0;i<n;i++)
+    {
+        cout<<"Введите элемент: ";
+        cin>>mas[i];
+    }
+    
+    for (int i=0;i<n;i++)
+    {
+        cout<<mas[i]<<" ";
+    }
+    cout<<endl;
+    
+    for(int i=0;i<n;i++)
+    {
+        a=mas[i];
+        for(j=i-1;j>=0 && mas[j]>a;j--)
+            mas[j+1]=mas[j];
+        mas[j+1]=a;
+    }
+    
+    cout<<"Сортировка:"<<endl;
+    for (int i=0;i<n;i++)
+    {
+        cout<<mas[i]<<" ";
+    }
+}
+
+/--------------------------------------------------
+
+#include <iostream>
+#include <string>
+#include <clocale>
+using namespace std;
+ 
+int main()
+{
+ 
+    string str, t, r;
+    cout<<"Введите строку: "; cin>>str;
+    cout<<"Введите подстроку, которую хотите заменить: "; cin>>t;
+    cout<<"Введите подстроку, которой хотите заменить: "; cin>>r;
+    
+    size_t pos = 0, c = 0;
+    
+    while ((pos = str.find(t, pos)) != string::npos)
+    {
+        str.replace(pos,t.size(),r);
+        pos += r.size();
+        c++;
+    }
+    
+    if (c>0)
+    cout << str << endl << "Количество замен: " << c;
+    else 
+    cout << str << endl << "Замены не были произведены";
+}
